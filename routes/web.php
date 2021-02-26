@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Custom Fortify Logout
+Route::post('/' . config('fortify.prefix') . '/logout', function (Illuminate\Http\Request $request) {
+    $token = App\Models\Sanctum\PersonalAccessToken::findToken($request->bearerToken());
+    App\Models\Sanctum\PersonalAccessToken::destroy($token->id);
+    return app(\Laravel\Fortify\Contracts\LogoutResponse::class);
+})->withoutMiddleware([
+    \App\Http\Middleware\VerifyCsrfToken::class
+])->middleware('auth:sanctum');
