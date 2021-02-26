@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "cd4b3f3a-642f-4deb-a49f-26fc5a9bfcfb",
+		"name": "Sanctum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jake Pro\",\n\t\"email\": \"admin7@jake-pro.com\",\n\t\"password\": \"123456789\",\n\t\"password_confirmation\": \"123456789\"\n}"
+				},
+				"url": {
+					"raw": "https://sanctum.test/auth/register",
+					"protocol": "https",
+					"host": [
+						"sanctum",
+						"test"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@jake-pro.com\",\n    \"password\": \"123456789\"\n}"
+				},
+				"url": {
+					"raw": "https://sanctum.test/auth/login",
+					"protocol": "https",
+					"host": [
+						"sanctum",
+						"test"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "18|JYeviGrks0nJVxFBsT2IdpZLfAYbqKTKeeUqtSMr",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sanctum.test/auth/logout",
+					"protocol": "https",
+					"host": [
+						"sanctum",
+						"test"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
